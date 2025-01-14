@@ -29,9 +29,10 @@ async function getProductDetail(productId: string) {
 export default async function ProductDetailRoute({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const data = await getProductDetail(params.id);
+  const { id } = await params;
+  const data = await getProductDetail(id);
   const addProductToSoppingCart = addItem.bind(null, data.id);
 
   return (
