@@ -15,6 +15,7 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_SECRET_WEBHOOK as string)
   } catch (err: unknown) {
+    console.log("Error verificando el webhook", err);
     return new Response("Error verificando el webhook", { status: 400 });
   }
   switch (event.type) {

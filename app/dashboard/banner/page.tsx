@@ -23,7 +23,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { MoreHorizontal, PlusCircle, User2 } from "lucide-react";
+import { MoreHorizontal, PlusCircle } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";

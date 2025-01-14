@@ -1,6 +1,6 @@
 "use client";
 
-import { createBanner, createProduct } from "@/app/actions.ts";
+import { createBanner } from "@/app/actions.ts";
 import { SubmitButton } from "@/app/components/dashboard/SubmitButton";
 import { UploadDropzone } from "@/app/lib/uploadthing";
 import { bannerSchema } from "@/app/lib/zodSchemas";

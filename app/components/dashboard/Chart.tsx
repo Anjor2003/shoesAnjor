@@ -18,7 +18,7 @@ interface iAppProps {
   }[];
 }
 
-const agregateData = (data: any) => {
+const agregateData = (data: any ) => {
   const agregated = data.reduce((acc: any, curr: any) => {
     if (acc[curr.date]) {
       acc[curr.date] += curr.revenue;

@@ -15,7 +15,7 @@ export async function createProduct(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
-  if (!user || user.email !== "fredymartinezdiaz@gmail.com") {
+  if (user.email !== "fredymartinezdiaz@gmail.com") {
     return redirect("/")
   }
 
@@ -43,11 +43,11 @@ export async function createProduct(prevState: unknown, formData: FormData) {
   redirect("/dashboard/products")
 }
 
-export async function editProduct(prevState: any, formData: FormData) {
+export async function editProduct(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
-  if (!user || user.email !== "fredymartinezdiaz@gmail.com") {
+  if (user.email !== "fredymartinezdiaz@gmail.com") {
     return redirect("/")
   }
 
@@ -97,7 +97,7 @@ export async function deleteProduct(formData: FormData) {
   redirect("/dashboard/products")
 }
 
-export async function createBanner(prevState: any, formData: FormData) {
+export async function createBanner(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession()
   const user = await getUser()
 
@@ -144,7 +144,7 @@ export async function addItem(productId: string) {
   if (!user) {
     return redirect("/")
   }
-  let cart: Cart | null = await redis.get(`cart-${user.id}`)
+  const cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   const selectedProduct = await prisma.product.findUnique({
     select: {
@@ -209,7 +209,7 @@ export async function removeItem(formData: FormData) {
 
   const productId = formData.get("productId")
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`)
+  const cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   if (cart && cart.items) {
     cart.items = cart.items.filter((item) => item.id !== productId)
@@ -228,7 +228,7 @@ export async function Checkout() {
   if (!user) {
     return redirect("/")
   }
-  let cart: Cart | null = await redis.get(`cart-${user.id}`)
+  const cart: Cart | null = await redis.get(`cart-${user.id}`)
 
   if (cart && cart.items) {
 

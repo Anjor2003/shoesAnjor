@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Instagram, Target, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import React from "react";
 
 export function Footer() {
