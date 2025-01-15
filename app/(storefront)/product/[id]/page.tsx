@@ -5,6 +5,7 @@ import { ImageSlider } from "@/app/components/storefront/ImageSlider";
 import prisma from "@/app/lib/db";
 import { StarIcon } from "lucide-react";
 import { notFound } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getProductDetail(productId: string) {
   const product = await prisma.product.findUnique({
@@ -31,6 +32,7 @@ export default async function ProductDetailRoute({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  noStore();
   const { id } = await params;
   const data = await getProductDetail(id);
   const addProductToSoppingCart = addItem.bind(null, data.id);

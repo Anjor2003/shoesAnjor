@@ -9,6 +9,7 @@ import {
 import { DashboardStats } from "../components/dashboard/DashboardStats";
 import { RecentSales } from "../components/dashboard/RecentSales";
 import { Chart } from "../components/dashboard/Chart";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getChartData() {
   const now = new Date();
@@ -36,6 +37,7 @@ async function getChartData() {
 }
 
 export default async function Dashboard() {
+  noStore();
   const data = await getChartData();
   return (
     <>

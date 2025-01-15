@@ -26,6 +26,7 @@ import {
 import { MoreHorizontal, PlusCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function getProducts() {
   const data = await prisma.product.findMany({
@@ -37,6 +38,7 @@ async function getProducts() {
 }
 
 export default async function ProductsRoute() {
+  noStore();
   const products = await getProducts();
   return (
     <>
