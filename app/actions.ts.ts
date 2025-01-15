@@ -248,10 +248,10 @@ export async function Checkout() {
       line_items: lineItems,
       success_url: process.env.NODE_ENV === "development"
         ? "http://localhost:3000/payment/success"
-        : "https://shoe-anjor.vercel.app/payment/success",
+        : "https://shoes-anjor.vercel.app/payment/success",
       cancel_url: process.env.NODE_ENV === "development"
         ? "http://localhost:3000/payment/cancel"
-        : "https://shoe-anjor.vercel.app/payment/cancel",
+        : "https://shoes-anjor.vercel.app/payment/cancel",
       metadata: {
         userId: user.id,
       }
